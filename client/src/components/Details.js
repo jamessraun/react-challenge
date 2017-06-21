@@ -31,7 +31,7 @@ class Details extends Component {
     article = (articles) ? (articles[id]) : null
 
     return (
-      <div style={{marginTop:100,marginRight:50,marginLeft:50}}>
+      <div style={{marginTop:20,marginRight:50,marginLeft:50}}>
           <Card.Group itemsPerRow={1}>
           {
             (article) ? (
@@ -49,14 +49,12 @@ class Details extends Component {
                 </a>
               </Card.Content>
             </Card>) : (
-              <div>
               <Segment style={{width:'100%'}}>
-                <Dimmer active inverted active inline='centered'>
+                <Dimmer active inverted>
                   <Loader size='massive'>Loading</Loader>
                 </Dimmer>
                 <Image src='https://semantic-ui.com/images/wireframe/paragraph.png' />
-              </Segment>
-            </div>)
+              </Segment>)
           }
           </Card.Group>
       </div>

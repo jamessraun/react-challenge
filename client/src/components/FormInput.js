@@ -1,29 +1,35 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
 import { Form } from 'semantic-ui-react'
 
-class FormInput extends Component{
-  constructor(props){
-    super(props)
-    this.state={sources:[]}
-  }
 
+import {submitAction} from '../ac-tions/submitAction'
 
-  render(){
-    const {sources} =this.props
-    return(
-        <div style={{marginBottom:100,marginLeft:400,marginTop:100}}>
+const FormInput = (props) =>{
 
-          <Form onSubmit={this.props.submitSource}>
-            <Form.Group>
-              <Form.Select onChange={this.props.handleChangeSource} value={this.props.source} label='News' options={sources} placeholder='Select news from...' style={{width:500}}  />
-            </Form.Group>
-            <Form.Button>Search</Form.Button>
-          </Form>
+  const {handleChangeSource,source} = props
+  let sources = props.sources.map((source,i) => ({key:source.id, text:source.name, value:source.id }))
 
-        </div>
-    )
-  }
+  return(
+      <div style={{width:'100%',marginBottom:50,marginLeft:400,marginTop:50}}>
+        <Form onSubmit={(e) => props.submitAction(e,source)}>
+          <Form.Group>
+            <Form.Select onChange={ handleChangeSource } value={ source } label='Sources' options={ sources } placeholder='Select news from...' style={{width:500}}  />
+          </Form.Group>
+          <Form.Button>Search</Form.Button>
+        </Form>
+
+      </div>
+  )
 
 }
 
-export default FormInput;
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    submitAction:(e,source) => dispatch(submitAction(e,source))
+  }
+}
+
+
+export  default connect(null,mapDispatchToProps)(FormInput);

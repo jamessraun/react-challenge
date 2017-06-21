@@ -1,9 +1,7 @@
 import FormInput from './FormInput'
-import ListNews from './ListNews'
+import Articles from './Articles'
 import Home from './Home'
 import Details from './Details'
-import Header from './Header'
-import Main from './Main'
 import Page404 from './Page404'
 
-export { Header,Main,Home,FormInput,ListNews,Details,Page404 }
+export {Home,FormInput,Articles,Details,Page404 }
