@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Form } from 'semantic-ui-react'
 
 
-import {submitAction} from '../ac-tions/submitAction'
+import {submitAction} from '../actions/submitAction'
 
 const FormInput = (props) =>{
 
@@ -12,6 +12,7 @@ const FormInput = (props) =>{
 
   return(
       <div style={{width:'100%',marginBottom:50,marginLeft:400,marginTop:50}}>
+
         <Form onSubmit={(e) => props.submitAction(e,source)}>
           <Form.Group>
             <Form.Select onChange={ handleChangeSource } value={ source } label='Sources' options={ sources } placeholder='Select news from...' style={{width:500}}  />

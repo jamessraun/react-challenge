@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { FormInput, Articles } from './index'
 
-
-import {loadAction} from '../ac-tions/loadAction'
+import { FormInput, Articles } from '../components'
+import {loadAction} from '../actions/loadAction'
 
 class Home extends Component {
 
   constructor(props){
     super(props)
-    this.state ={source:''}
+    this.state ={source:'',isLoading:true}
     this.handleChangeSource = this.handleChangeSource.bind(this)
   }
 

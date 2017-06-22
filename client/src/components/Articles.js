@@ -9,12 +9,8 @@ const ListArticle = (props) => {
     const {articles} = props
     const {source} = props
 
-    // console.log('props------',props);
-    // console.log('articles----',articles);
-    // console.log('source----',source);
-    if(articles.length>0){
       return(
-      <div style={{marginTop:50,marginRight:50,marginLeft:50}}>
+        <div style={{marginTop:50,marginRight:50,marginLeft:50}}>
           <Card.Group itemsPerRow={4}>
             {articles.map((article,i) =>
             <Card key={i} link>
@@ -35,11 +31,7 @@ const ListArticle = (props) => {
             </Card>
             )}
           </Card.Group>
-      </div>
-    )
-  }else{
-    return(<div><h1>Pilih Sumber</h1></div>)
-  }
+        </div>)
 }
 
 
