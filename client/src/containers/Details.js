@@ -11,7 +11,7 @@ class Details extends Component {
 
 
   componentDidMount(){
-    const {media} = this.props.match.params
+    const { media } = this.props.match.params
 
     fetch(`https://newsapi.org/v1/articles?source=${media}&apiKey=2b8dc8cd0b964e7d87e5e805a531bc27`)
    .then((response) => response.json())
@@ -25,10 +25,10 @@ class Details extends Component {
 
 
   render(){
-    const {id} = this.props.match.params
-    const {articles} = this.state
-    var article =null;
-    article = (articles) ? (articles[id]) : null
+    const { id } = this.props.match.params,
+          { articles } = this.state
+
+    var article = (articles) ? (articles[id]) : null
 
     return (
       <div style={{marginTop:20,marginRight:50,marginLeft:50}}>

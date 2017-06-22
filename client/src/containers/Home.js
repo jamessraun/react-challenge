@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { Dimmer,Loader } from 'semantic-ui-react'
 
 import { FormInput, Articles } from '../components'
-import {loadAction} from '../actions/loadAction'
+import { loadAction } from '../actions/loadAction'
 
 class Home extends Component {
 
   constructor(props){
     super(props)
-    this.state ={source:'',isLoading:true}
+    this.state ={ source:'',isLoading:true }
     this.handleChangeSource = this.handleChangeSource.bind(this)
   }
 
@@ -22,13 +23,17 @@ class Home extends Component {
   }
 
   render(){
+    const { sources } = this.props,
+          { source,isLoading } = this.state,
+          { handleChangeSource } = this
+
     return (<div>
         <FormInput
-        sources={ this.props.sources }
-        source={ this.state.source }
-        handleChangeSource = { this.handleChangeSource }/>
-
+        sources={ sources }
+        source={ source }
+        handleChangeSource = { handleChangeSource }/>
         <hr />
+        {(isLoading)}
         <Articles/>
       </div>)
   }

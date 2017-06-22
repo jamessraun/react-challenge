@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Card, Image,Icon } from 'semantic-ui-react'
+import { Card, Image,Icon,Loader } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 

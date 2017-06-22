@@ -5,7 +5,7 @@ import {Page404} from '../components'
 import Home from './Home'
 import Details from './Details'
 
-export default () =>{
+export default () => {
 
   return(
     <main>
