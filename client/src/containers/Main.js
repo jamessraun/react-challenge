@@ -12,7 +12,7 @@ export default () => {
       <Switch>
 
         <Route exact path='/' component={Home}/>
-        <Route path='/details/:media/:id' component={Details}/>
+        <Route path='/details/:source/:id' component={Details}/>
         <Route component={Page404}/>
 
       </Switch>

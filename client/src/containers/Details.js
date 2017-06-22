@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Card, Image,Icon,Segment,Dimmer,Loader } from 'semantic-ui-react'
 
+import { loadAction } from '../actions/loadAction'
 
 class Details extends Component {
 
@@ -9,24 +11,14 @@ class Details extends Component {
     this.state = {articles:[]}
   }
 
-
   componentDidMount(){
-    const { media } = this.props.match.params
-
-    fetch(`https://newsapi.org/v1/articles?source=${media}&apiKey=2b8dc8cd0b964e7d87e5e805a531bc27`)
-   .then((response) => response.json())
-   .then((responseJson) => {
-     this.setState({articles:responseJson.articles})
-   })
-   .catch((error) => {
-       console.log(error);
-     });
+    const { source } = this.props.match.params
+    this.props.loadAction(source)
   }
-
 
   render(){
     const { id } = this.props.match.params,
-          { articles } = this.state
+          { articles } = this.props
 
     var article = (articles) ? (articles[id]) : null
 
@@ -62,4 +54,16 @@ class Details extends Component {
   }
 }
 
-export default Details
+const mapStateToProps = ( { articlesReducer } ) => {
+  return {
+    articles : articlesReducer.articles,
+  }
+}
+
+const mapDispatchToProps = ( dispatch ) =>{
+  return {
+    loadAction : ( source ) => dispatch( loadAction( source ) )
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Details)

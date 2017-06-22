@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { Dimmer,Loader } from 'semantic-ui-react'
 
 import { FormInput, Articles } from '../components'
 import { loadAction } from '../actions/loadAction'
@@ -19,6 +18,7 @@ class Home extends Component {
   }
 
   componentDidMount(){
+    console.log('masuk sini----');
     this.props.loadActions()
   }
 

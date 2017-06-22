@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Form, Loader } from 'semantic-ui-react'
+import { Form } from 'semantic-ui-react'
 
 
 import {submitAction} from '../actions/submitAction'
